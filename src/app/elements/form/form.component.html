@@ -1,0 +1,110 @@
+<div id="main-wrapper" class="">
+  <div class="container-fluid px-0 h-100">
+    <div class="row no-gutters h-100">
+
+      <!-- Login Form
+        ============================================= -->
+        <div class="col-md-6 d-flex align-items-center">
+          <div class="container my-4">
+            <div class="row">
+              <div class="col-11 col-lg-9 col-xl-8 mx-auto">
+                <h3 class="font-weight-400 mb-4">Log In</h3>
+
+                <form id="loginForm" [formGroup]="form" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" class="form-control" [ngClass]="{ 'is-invalid': f['fullname'].value.length > 1 && f['fullname'].errors }" id="fullname" required placeholder="Enter Your Fullname" formControlName="fullname">
+                    <div *ngIf="f['fullname'].value.length > 1 && f['fullname'].errors" class="invalid-feedack">
+                      <div *ngIf="f['fullname'].errors['required']">Fullname is required</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" [ngClass]="{ 'is-invalid': f['username'].value.length > 1 && f['username'].errors }" id="username" required placeholder="Enter Your username" formControlName="username">
+                    <div *ngIf="f['username'].value.length > 1 && f['username'].errors" class="invalid-feedack">
+                      <div *ngIf="f['username'].errors['minlength']">username must be at least 5 characters</div>
+                      <div *ngIf="f['username'].errors['required']">username is required</div>
+                      <div *ngIf="f['username'].errors['maxlength']">username must not exceed 15 characters</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" [ngClass]="{ 'is-invalid': f['email'].value.length > 1 && f['email'].errors }" id="email" required placeholder="Enter Your email" formControlName="email">
+                    <div *ngIf="f['email'].value.length > 1 && f['email'].errors" class="invalid-feedack">
+                      <div *ngIf="f['email'].errors['required']">Email is required</div>
+                      <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" [ngClass]="{ 'is-invalid': f['password'].value.length > 1 && f['password'].errors }" id="password" required placeholder="Enter Your password" formControlName="password">
+                    <div *ngIf="f['password'].value.length > 1 && f['password'].errors" class="invalid-feedack">
+                      <div *ngIf="f['password'].errors['required']">password is required</div>
+                      <div *ngIf="f['password'].errors['minlength']">password must be at least 8 characters</div>
+                      <div *ngIf="f['password'].errors['maxlength']">password must not exceed 32 characters/div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" class="form-control" [ngClass]="{ 'is-invalid': f['confirmPassword'].value.length > 1 && f['confirmPassword'].errors }" id="confirmPassword" required placeholder="Enter Your confirmPassword" formControlName="confirmPassword">
+                  <div *ngIf="f['confirmPassword'].value.length > 1 && f['confirmPassword'].errors" class="invalid-feedack">
+                    <div *ngIf="f['confirmPassword'].errors['required']">This field is required</div>
+                    <div *ngIf="f['confirmPassword'].errors['matching']">Both passwords must match</div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="form-check custom-control custom-checkbox">
+                      <input id="remember-me" formControlName="terms" name="remember" class="custom-control-input" type="checkbox">
+                      <label class="custom-control-label" for="remember-me">I agree to the terns and condition Bitch</label>
+                      <div *ngIf="f['username'].value === false && f['terms'].errors" class="invalid-feedack"
+                      CLick this box></div>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn btn-primary pill btn-block my-4" type="submit" [disabled]="form.invalid">Sign Up</button>
+              </form>
+              <p class="text-3 text-center text-muted">Don't have an account? <a class="btn-link" href="login">Log in</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Login Form End -->
+      <!-- Welcome Text
+      ============================================= -->
+      <div class="col-md-6">
+        <div class="hero-wrap d-flex align-items-center h-100">
+          <div class="hero-mask opacity bg-primary"></div>
+          <div class="hero-bg hero-bg-scroll" style="background-image:url('');"></div>
+          <div class="hero-content mx-auto w-100 h-100 d-flex flex-column">
+            <div class="row no-gutters">
+              <div class="col-10 col-lg-9 mx-auto">
+                <div class="logo mt-10 mb-5 mb-md-0"> <img src="/assets/images/logo-ng.png" width="40%" height="auto" alt="angular"></div>
+              </div>
+            </div>
+              <div class="row no-gutters my-auto">
+                <div class="col-10 col-lg-9 mx-auto">
+                  <h1 class="text-11 text-white mb-4">Angular 14 form with validation</h1>
+                  <p class="text-4 text-white line-height mb-5">Angular is better than react. <br> React sucks</p>
+                </div>
+              </div>
+              <div class="col-10 col-lg-9 mx-auto">
+                <div class="logo mt-10 mb-5 mb-md-0">
+                  <p> Built By
+                  <a href="http://oluwaferanmi.onrender.com" class="text-white" target="_blank" rel="noopener noreferrer">@FeranmiWebDev</a>
+                </p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Welcome Text End -->
+      </div>
+  </div>
+</div>
